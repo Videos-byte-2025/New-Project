@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Watch Video</title>
 
@@ -11,15 +13,24 @@
         margin: 0;
         background: black;
         height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
     }
 
-    iframe {
-        position: fixed;
-        top: 0;
-        left: 0;
+    .video-wrapper {
         width: 100vw;
         height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    iframe {
+        width: 100vw;
+        height: calc(100vw * 9 / 16); /* perfect 16:9 ratio */
+        max-height: 100vh;
         border: none;
     }
 </style>
@@ -27,10 +38,12 @@
 
 <body>
 
+<div class="video-wrapper">
 <iframe
 src="https://www.youtube.com/embed/vs0rMt7uaa0"
 allowfullscreen>
 </iframe>
+</div>
 
 </body>
 </html>
