@@ -9,32 +9,29 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 <title>Watch Video</title>
 
 <style>
-html,body{
+body{
     margin:0;
-    padding:0;
     background:black;
-    height:100%;
     overflow:hidden;
-}
-
-/* fullscreen container */
-.player{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100vw;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-/* video keeps full ratio (NO CUT) */
-.player iframe{
-    width:100vw;
-    height:56.25vw; /* 16:9 */
-    max-height:100vh;
-    max-width:177.78vh;
+/* container fits phone screen */
+.container{
+    position:relative;
+    width:100vh;
+    height:100vw;
+    transform:rotate(90deg);
+    transform-origin:center;
+}
+
+/* video fits fully (NO CUT) */
+.container iframe{
+    width:100%;
+    height:100%;
     border:none;
 }
 </style>
@@ -42,9 +39,9 @@ html,body{
 
 <body>
 
-<div class="player">
+<div class="container">
 <iframe
-src="https://www.youtube.com/embed/vs0rMt7uaa0?autoplay=1&controls=1&rel=0&modestbranding=1&iv_load_policy=3&fs=1&disablekb=1&playsinline=1"
+src="https://www.youtube.com/embed/vs0rMt7uaa0?modestbranding=1&rel=0&iv_load_policy=3"
 allow="autoplay; fullscreen"
 allowfullscreen>
 </iframe>
