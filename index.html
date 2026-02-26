@@ -3,53 +3,49 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Watch Video</title>
 
 <style>
-body{
+html,body{
     margin:0;
+    padding:0;
     background:black;
+    height:100%;
     overflow:hidden;
 }
 
-/* Full screen container */
-.video-container{
+/* fullscreen container */
+.player{
     position:fixed;
     top:0;
     left:0;
     width:100vw;
     height:100vh;
-    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* Make video cover entire screen */
-.video-container iframe{
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:177.78vh; /* 16:9 ratio */
-    height:100vh;
-    transform:translate(-50%, -50%);
+/* video keeps full ratio (NO CUT) */
+.player iframe{
+    width:100vw;
+    height:56.25vw; /* 16:9 */
+    max-height:100vh;
+    max-width:177.78vh;
     border:none;
-}
-
-/* If screen is wider */
-@media (min-aspect-ratio:16/9){
-    .video-container iframe{
-        width:100vw;
-        height:56.25vw;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="video-container">
+<div class="player">
 <iframe
-src="https://www.youtube.com/embed/vs0rMt7uaa0"
+src="https://www.youtube.com/embed/vs0rMt7uaa0?autoplay=1&controls=1&rel=0&modestbranding=1&iv_load_policy=3&fs=1&disablekb=1&playsinline=1"
+allow="autoplay; fullscreen"
 allowfullscreen>
 </iframe>
 </div>
